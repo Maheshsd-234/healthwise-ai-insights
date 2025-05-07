@@ -1,9 +1,8 @@
 
-// Importing toast from shadcn's toast.ts instead of the hook directly
-import { toast } from "@/components/ui/use-toast";
+// Direct import from the shadcn toast UI component
+import { toast } from "@/components/ui/toast";
+import { useToast as useToastUI } from "@/components/ui/toast";
 
-// Re-export the useToast hook
-export { useToast } from "@/components/ui/use-toast";
-
-// Re-export toast
+// Re-export as useToast and toast
+export const useToast = useToastUI;
 export { toast };

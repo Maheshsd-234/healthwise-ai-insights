@@ -49,7 +49,7 @@ const DataEntryForm: React.FC<DataEntryFormProps> = ({ onSubmit }) => {
       setFormData({
         ...formData,
         [parent]: {
-          ...formData[parent as keyof HealthFormData],
+          ...(formData[parent as keyof HealthFormData] as Record<string, unknown>),
           [child]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
         },
       });
