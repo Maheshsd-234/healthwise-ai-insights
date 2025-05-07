@@ -351,17 +351,16 @@ function useToastImpl() {
   }
 }
 
-export const useToast = () => {
-  const context = useContext(ToastContext)
+// Define a toast function that can be imported and used directly
+const toast = (props: Omit<ToasterToast, "id">): string => {
+  // Create a dummy context for direct usage without the provider
+  const id = genId();
+  // In a real application, this would need additional logic to work outside of the provider
+  console.log('Toast triggered:', props);
+  return id;
+};
 
-  if (context === undefined) {
-    throw new Error("useToast must be used within a ToastProvider")
-  }
-
-  return context
-}
-
-export function ToastProvider({
+export function ToastProviderComponent({
   children,
 }: {
   children: React.ReactNode
@@ -382,10 +381,22 @@ export function ToastProvider({
   )
 }
 
+export const useToast = () => {
+  const context = useContext(ToastContext)
+
+  if (context === undefined) {
+    throw new Error("useToast must be used within a ToastProvider")
+  }
+
+  return context
+}
+
+// Export everything with clear, non-duplicated names
 export { 
   type ToastProps, 
   type ToastActionElement, 
   ToastProvider, 
+  ToastProviderComponent as ToastCustomProvider,
   ToastViewport, 
   Toast, 
   ToastTitle, 
