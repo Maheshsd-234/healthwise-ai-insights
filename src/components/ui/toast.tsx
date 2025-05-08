@@ -131,7 +131,7 @@ export const ToastViewport = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof Viewport>
 >(({ className, ...props }, ref) => (
   <Viewport
-    ref={ref}
+    ref={ref as React.Ref<HTMLOListElement>}
     className={cn(
       "fixed inset-0 z-[100] flex flex-col p-4 sm:items-center sm:justify-center gap-4",
       className
