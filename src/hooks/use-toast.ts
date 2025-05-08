@@ -42,17 +42,14 @@ export const ToastProvider = ({
     return id
   }, [])
 
-  return (
-    <ToastContext.Provider
-      value={{
-        toast,
-        dismiss,
-        toasts,
-      }}
-    >
-      {children}
-    </ToastContext.Provider>
-  )
+  return React.createElement(ToastContext.Provider, {
+    value: {
+      toast,
+      dismiss,
+      toasts,
+    },
+    children
+  })
 }
 
 export function useToast() {
