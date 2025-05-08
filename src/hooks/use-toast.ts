@@ -1,6 +1,6 @@
 
 import * as React from "react"
-import { Toast, type ToastProps } from "@/components/ui/toast"
+import { Toast } from "@/components/ui/toast"
 
 // Context interface
 export interface ToastContextType {

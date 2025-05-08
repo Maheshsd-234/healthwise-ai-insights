@@ -1,3 +1,3 @@
 
-// Re-export from toast.tsx
-export { useToast, toast } from "@/components/ui/toast";
+// Re-export from hooks/use-toast
+export { useToast, toast, ToastProvider } from "@/hooks/use-toast";
